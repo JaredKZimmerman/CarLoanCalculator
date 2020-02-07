@@ -69,18 +69,17 @@ public class MainActivity extends AppCompatActivity {
                         double mpayvalue = ((airvalue / 100) / 12 * (ccvalue - dpvalue)) / (1 - Math.pow((1 + airvalue / 100 / 12), (monthsInt*-1)));
                         monthlyPay.setText(String.format("%.2f", mpayvalue));
                     } else if (leasebutton.isChecked()) {
-                        double mpayvalue = ((airvalue / 100) / 12 * ((ccvalue / 3) - dpvalue)) / (1 - Math.pow(1 + airvalue / 100 / 12, -36));
+                        double mpayvalue = ((airvalue / 100) / 12 * ((ccvalue / 3) - dpvalue)) / (1 - Math.pow((1 + airvalue / 100 / 12), -36));
                         monthlyPay.setText(String.format("%.2f", mpayvalue));
-                    } else {
-                        Toast.makeText(this, "No A. I. R. entered!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(this, "No Down Payment entered", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "No A. I. R. entered!", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(this, "No Down Payment entered", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "No Down Payment entered!", Toast.LENGTH_SHORT).show();
             }
-
+        } else {
+            Toast.makeText(this, "No Car Cost entered!", Toast.LENGTH_SHORT).show();
         }
     }
 }
